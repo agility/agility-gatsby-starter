@@ -69,7 +69,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
           const pageNodeToCreate = Object.assign({}, page, nodeMeta);
           await createNode(pageNodeToCreate);
 
-          // Create nodes for each Module on this page - so they can be consumed with GraphQL
+          // Create nodes for each Module on this page - so they can be consumed with GraphQL -
           
           await asyncForEach(Object.values(page.zones), async (modules) => {
             
