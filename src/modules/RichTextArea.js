@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+
+
+
+class RichTextArea extends Component {
+    componentDidMount() {
+
+    }
+    setHTML = () => {
+        return {__html: this.props.item.fields.textblob};
+    }
+    render() {    
+        const setHTML = this.setHTML();
+        console.warn('RichTextArea', this.props)
+        //TODO: get fields from graphQL
+        return (
+            <section className="container">
+                <div dangerouslySetInnerHTML={setHTML}></div>
+            </section>
+        );
+    }
+}
+
+export default RichTextArea;

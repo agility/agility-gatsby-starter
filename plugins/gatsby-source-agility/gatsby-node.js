@@ -147,7 +147,10 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
               MainContentZone {
                 module
                 item {
-                  contentID
+                  contentID,
+                  properties {
+                    referenceName
+                  }
                 }
               }
             }
@@ -182,6 +185,9 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
       throw result.errors
     }
 
+    const modules = configOptions.modules;
+    const pageTemplates = configOptions.pageTemplates;
+
     // Create blog post pages.
     result.data.allAgilitySitemapNode.nodes.forEach(node => {
         
@@ -200,7 +206,7 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
             // Path for this page — required
             path: pagePath,
             component: pageTemplate,
-            context: { sitemapnode: node, page: page },
+            context: { sitemapnode: node, page: page, modules, pageTemplates },
         })
     })
   })

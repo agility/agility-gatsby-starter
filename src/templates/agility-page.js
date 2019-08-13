@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { ContentZone } from '@agility/react-agilitycms'
+import modules from '../modules/allModules.js'
 
 export default class AgilityPage extends Component {
     render() {
-        console.log(this.props.pageResources.json.pageContext)    
+        const propsForContentZone = {
+            pageContext: this.props.pageResources.json.pageContext,
+            modules: modules
+        }
         return (
-        <div className="one-column-template">
-            <pre>{this.props.pageResources.json.pageContext.sitemapnode.title}</pre>
-        </div>
+            <div className="one-column-template">
+                 <ContentZone name='MainContentZone' {...propsForContentZone} />
+                <pre>{this.props.pageResources.json.pageContext.sitemapnode.title}</pre>
+            </div>
         );
     }
 }

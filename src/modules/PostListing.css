@@ -1,0 +1,7 @@
+.posts-listing {
+    padding: 16px;
+}
+
+.posts-listing .post img {
+    max-width: 100%;
+}
