@@ -12,27 +12,27 @@ class PostsListing extends Component {
         }
     }
     async componentDidMount() {
-        const api = this.props.agility.client;
-        try {
-            //TODO: Need a proper way to cache the sitemap
-            //get sitemap first, need it to find the dynamic urls
-            let sitemap = await api.getSitemapFlat({
-                channelName: this.props.agility.config.channelName,
-                languageCode: this.props.agility.config.languageCode
-            });
+        // const api = this.props.agility.client;
+        // try {
+        //     //TODO: Need a proper way to cache the sitemap
+        //     //get sitemap first, need it to find the dynamic urls
+        //     let sitemap = await api.getSitemapFlat({
+        //         channelName: this.props.agility.config.channelName,
+        //         languageCode: this.props.agility.config.languageCode
+        //     });
 
-            //then get our posts
-            let contentListResult = await api.getContentList({
-                referenceName: 'posts',
-                languageCode: this.props.agility.config.languageCode
-            });
+        //     //then get our posts
+        //     let contentListResult = await api.getContentList({
+        //         referenceName: 'posts',
+        //         languageCode: this.props.agility.config.languageCode
+        //     });
 
-            const dynamicUrls = this.resolvePostUrls(sitemap, contentListResult.items)
-            this.setState({ posts: contentListResult.items, dynamicUrls: dynamicUrls })
+        //     const dynamicUrls = this.resolvePostUrls(sitemap, contentListResult.items)
+        //     this.setState({ posts: contentListResult.items, dynamicUrls: dynamicUrls })
 
-        } catch (error) {
-            if (console) console.error(error);
-        }
+        // } catch (error) {
+        //     if (console) console.error(error);
+        // }
 
     }
     resolvePostUrls(sitemap, posts) {
@@ -74,10 +74,10 @@ class PostsListing extends Component {
 
         return (
             <section className="posts-listing">
-                <div className="container">
+                {/* <div className="container">
                     <h1>{this.props.item.fields.title}</h1>
                     {this.renderPosts()}
-                </div>
+                </div> */}
             </section>
         );
     }

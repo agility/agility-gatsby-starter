@@ -16,14 +16,14 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
     const channels = configOptions.channels;
 
     // Source Shared Content ------------------------------------------------------------------------------
-    const sourceSharedContent = async ( { aglClient, sharedContentReferenceNames, langCode }) => {
+    const sourceSharedContent = async ({ aglClient, sharedContentReferenceNames, langCode }) => {
       await asyncForEach(sharedContentReferenceNames, async (refName) => {
 
         //Source Content from Shared Content in Agility
         var data = await aglClient.getContentList({ referenceName:refName, languageCode: langCode }); 
 
         await asyncForEach(data.items, async (ci) => {
-            ci.props = ci.fields;
+            ci.myFields = ci.fields;
             delete ci.fields;
 
             const nodeContent = JSON.stringify(ci);
@@ -46,7 +46,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
     }
 
     // Source Sitemap + Pages ---------------------------------------------------------------------------
-    const sourceSitemap = async ({ channel, langCode}) => {
+    const sourceSitemap = async ({ channel, langCode }) => {
       const sitemapNodes = await aglClient.getSitemapFlat({ channelName: channel, languageCode: langCode}); 
 
       //loop through each sitemapnode in sitemap
@@ -55,6 +55,20 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
           // Create node for this page
           const page = await aglClient.getPage({ pageID: sitemapNode.pageID, languageCode: langCode});
           
+          //Hack: set re-jig the format of the `zones` property so that is it not a dictionary (GraphQL doesn't like this)
+          let pageZones = [];
+
+          Object.keys(page.zones).forEach((zoneName) => {
+            const pageZone = {
+              name: zoneName,
+              modules: Object.values(page.zones[zoneName])
+            }
+            pageZones.push(pageZone);
+          });
+
+          //overwrite previous zones property
+          page.zones = pageZones;
+
           const nodeContent = JSON.stringify(page);
           const nodeMeta = {
               id: createNodeId(`page-${channel}-${page.pageID}-${langCode}`),
@@ -70,9 +84,8 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
           await createNode(pageNodeToCreate);
 
           // Create nodes for each Module on this page - so they can be consumed with GraphQL -
-          
-          await asyncForEach(Object.values(page.zones), async (modules) => {
-            
+          await asyncForEach(page.zones, async (zone) => {
+            const modules = zone.modules;
             await asyncForEach(modules, async (mod) => {
               const moduleContent = JSON.stringify(mod);
               const moduleMeta = {
@@ -126,9 +139,15 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
 
 exports.createPages = async ({ graphql, actions }, configOptions) => {
     const { createPage } = actions
+
+    const aglClient = agility.getApi({
+        guid: configOptions.guid,
+        apiKey: configOptions.apiKey
+    })
+
     const pageTemplate = path.resolve(`src/templates/agility-page.js`);
 
-    return graphql(`
+    const result  = await graphql(`
     query MyQuery {
         allAgilitySitemapNode {
           nodes {
@@ -140,47 +159,8 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
             menuText
           }
         }
-        allAgilityPage {
-          nodes {
-            templateName
-            zones {
-              MainContentZone {
-                module
-                item {
-                  contentID,
-                  properties {
-                    referenceName
-                  }
-                }
-              }
-            }
-            seo {
-              metaDescription
-              metaHTML
-              metaKeywords
-            }
-            name
-            securePage
-            scripts {
-              excludedFromGlobal
-            }
-            redirectUrl
-            properties {
-              modified
-              state
-              versionID
-            }
-            pageType
-            pageID
-            menuText
-            title
-            visible {
-              menu
-            }
-          }
-        }
       }      
-  `, { limit: 1000 }).then(result => {
+  `, { limit: 1000 }).then(async (result) => {
     if (result.errors) {
       throw result.errors
     }
@@ -188,25 +168,23 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
     const modules = configOptions.modules;
     const pageTemplates = configOptions.pageTemplates;
 
-    // Create blog post pages.
-    result.data.allAgilitySitemapNode.nodes.forEach(node => {
+    // Create pages loop...
+    await asyncForEach(result.data.allAgilitySitemapNode.nodes, async (sitemapNode) => {
         
-        const page = result.data.allAgilityPage.nodes.find(agilityPage => {
-            return agilityPage.pageID === node.pageID;
-        })
-
-        let pagePath = node.path;
+        const page = await aglClient.getPage({ pageID: sitemapNode.pageID, languageCode: "en-us"});
+        
+        let pagePath = sitemapNode.path;
 
         if(configOptions.languages.length > 1) {
           //More than one lang? Append language code to path
-          pagePath = `/${page.properties.languageCode}/${node.path}`;
+          pagePath = `/${page.properties.languageCode}/${sitemapNode.path}`;
         }
 
         createPage({
             // Path for this page — required
             path: pagePath,
             component: pageTemplate,
-            context: { sitemapnode: node, page: page, modules, pageTemplates },
+            context: { sitemapnode: sitemapNode, page, modules, pageTemplates },
         })
     })
   })
