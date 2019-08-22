@@ -11,8 +11,6 @@ class RichTextArea extends Component {
     }
     render() {    
         const setHTML = this.setHTML();
-        console.warn('RichTextArea', this.props)
-        //TODO: get fields from graphQL
         return (
             <section className="container">
                 <div dangerouslySetInnerHTML={setHTML}></div>

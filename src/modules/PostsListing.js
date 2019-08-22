@@ -91,7 +91,6 @@ class PostsListing extends Component {
         }
     }
     render() {
-        console.log('postListingModule', this.props)
         return (
             <section className="posts-listing">
                 <div className="container">
