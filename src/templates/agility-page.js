@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import { ContentZone } from '@agility/react-agilitycms'
-import modules from '../modules/allModules.js'
+import modules from '../modules/_allModules.js/index.js'
+import pageTemplates from '../templates/_allPageTemplates.js'
+
+import GlobalHeader from '../components/GlobalHeader.js/index.js'
+
 
 export default class AgilityPage extends Component {
     render() {
-        const propsForContentZone = {
+        
+        const pageTemplateName = this.props.pageResources.json.pageContext.page.templateName.replace(/[^0-9a-zA-Z]/g, '');
+        const propsForPageTemplate = {
             pageContext: this.props.pageResources.json.pageContext,
             modules: modules
         }
+        const PageTemplateComponentToRender = pageTemplates[pageTemplateName];
+
         return (
-            <div className="one-column-template">
-                 <ContentZone name='MainContentZone' {...propsForContentZone} />
-                <pre>{this.props.pageResources.json.pageContext.sitemapnode.title}</pre>
+            <div id="inner-body">
+                <GlobalHeader />
+                <PageTemplateComponentToRender {...propsForPageTemplate} />
             </div>
         );
     }
 }
+
+

@@ -13,11 +13,12 @@
     {
       resolve: "gatsby-source-agility",
       options: {
-        guid: "ade6cf3c",
-        apiKey: "defaultlive.201ffdd0841cacad5bb647e76547e918b0c9ecdb8b5ddb3cf92e9a79b03623cb",
+        guid: "046a1a87",
+        apiKey: "defaultlive.2b7f3a91559d794bedb688358be5e13af2b1e3ae8cd39e8ed2433bbef5d8d6ac",
         sharedContent: ['posts', 'globalheader'],
         languages: [ 'en-us' ],
-        channels: [ 'website' ]
+        channels: [ 'website' ],
+        indexPage: '/home'
       },
     },
   ],

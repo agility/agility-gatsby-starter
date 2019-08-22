@@ -13,8 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@agility/content-fetch": "^0.5.0",
-    "@agility/react-agilitycms": "0.0.1",
+    "@agility/content-fetch": "^0.5.1",
     "gatsby": "^2.13.45",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

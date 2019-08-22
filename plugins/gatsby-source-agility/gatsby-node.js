@@ -21,11 +21,11 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
 
         //Source Content from Shared Content in Agility
         var data = await aglClient.getContentList({ referenceName:refName, languageCode: langCode }); 
+        
 
         await asyncForEach(data.items, async (ci) => {
             ci.myFields = ci.fields;
             delete ci.fields;
-
             const nodeContent = JSON.stringify(ci);
             
             const nodeMeta = {
@@ -35,11 +35,12 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }, con
                 internal: {
                     type: `AgilityContent_${ci.properties.definitionName}`,
                     content: nodeContent,
-                    contentDigest: createContentDigest(ci)
+                    contentDigest: createContentDigest(ci + Date.now())
                 }
             }
             const node = Object.assign({}, ci, nodeMeta);
-            
+          
+
             await createNode(node);
         })
       }); 
@@ -148,7 +149,7 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
     const pageTemplate = path.resolve(`src/templates/agility-page.js`);
 
     const result  = await graphql(`
-    query MyQuery {
+    query SitemapNodesQuery {
         allAgilitySitemapNode {
           nodes {
             name
@@ -177,16 +178,38 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
 
         if(configOptions.languages.length > 1) {
           //More than one lang? Append language code to path
-          pagePath = `/${page.properties.languageCode}/${sitemapNode.path}`;
+          pagePath = `/${page.properties.languageCode}${sitemapNode.path}`;
+        }
+
+        //if this is a dynamic page, grab the dynamic item and pass-it to the context
+        let dynamicPageItem = null;
+        if(sitemapNode.contentID)  {
+          dynamicPageItem = await aglClient.getContentItem({ contentID: sitemapNode.contentID, languageCode: "en-us" });
         }
 
         createPage({
             // Path for this page — required
             path: pagePath,
             component: pageTemplate,
-            context: { sitemapnode: sitemapNode, page, modules, pageTemplates },
+            context: { sitemapnode: sitemapNode, page, modules, pageTemplates, dynamicPageItem },
         })
+        
+        //if this page is supposed to be the default index page, create a duplicate for it
+        if(configOptions.indexPage && pagePath === configOptions.indexPage) {
+          pagePath = '/';
+            createPage({
+              // Path for this page — required
+              path: pagePath,
+              component: pageTemplate,
+              context: { sitemapnode: sitemapNode, page, modules, pageTemplates, dynamicPageItem },
+          })
+        }
+
+        
+
     })
+
+
   })
 
 
