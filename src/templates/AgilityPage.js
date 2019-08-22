@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import modules from '../modules/_allModules.js/index.js'
-import pageTemplates from '../templates/_allPageTemplates.js'
 
-import GlobalHeader from '../components/GlobalHeader.js/index.js'
+import './AgilityPage.css'
+
+//You need to pass-down the available modules to the app because they will be rendered dynamically
+import modules from '../modules/_allModules.js'
+import pageTemplates from './_allPageTemplates.js'
+
+import GlobalHeader from '../components/GlobalHeader.js'
 
 
 export default class AgilityPage extends Component {

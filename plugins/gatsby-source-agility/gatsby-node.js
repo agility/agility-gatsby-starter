@@ -146,7 +146,7 @@ exports.createPages = async ({ graphql, actions }, configOptions) => {
         apiKey: configOptions.apiKey
     })
 
-    const pageTemplate = path.resolve(`src/templates/agility-page.js`);
+    const pageTemplate = path.resolve(configOptions.defaultPageTemplate);
 
     const result  = await graphql(`
     query SitemapNodesQuery {

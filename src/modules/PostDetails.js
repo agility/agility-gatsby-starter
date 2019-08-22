@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 import './PostDetails.css'
 
 class PostDetails extends Component {

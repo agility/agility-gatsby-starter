@@ -18,6 +18,7 @@
         sharedContent: ['posts', 'globalheader'],
         languages: [ 'en-us' ],
         channels: [ 'website' ],
+        defaultPageTemplate: './src/templates/AgilityPage.js',
         indexPage: '/home'
       },
     },

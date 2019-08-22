@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 
-//import './GlobalHeader.css'
+import './GlobalHeader.css'
 
 export default props => (
     <StaticQuery

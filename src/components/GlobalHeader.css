@@ -1,0 +1,26 @@
+.header {
+    background-color: black;
+    color: #fff;
+    padding: 16px;
+}
+
+.header ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 32px;
+}
+
+.header li {
+    display: inline-block;
+    margin-left: 16px
+}
+
+.header a, header.a:visited, header.a:active {
+    color: #fff;
+}
+
+.header a:hover {
+    text-decoration: none;
+}
