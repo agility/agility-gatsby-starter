@@ -63,3 +63,12 @@ typings/
 .cache
 
 .vscode
+
+.netlify
+
+public/
+.cache/
+
+.gatsby-context.js
+
+bundle-stats.json

@@ -11,10 +11,9 @@ import GlobalHeader from '../components/GlobalHeader.js'
 
 export default class AgilityPage extends Component {
     render() {
-        
-        const pageTemplateName = this.props.pageResources.json.pageContext.page.templateName.replace(/[^0-9a-zA-Z]/g, '');
+        const pageTemplateName = this.props.pageContext.page.templateName.replace(/[^0-9a-zA-Z]/g, '');
         const propsForPageTemplate = {
-            pageContext: this.props.pageResources.json.pageContext,
+            pageContext: this.props.pageContext,
             modules: modules
         }
         const PageTemplateComponentToRender = pageTemplates[pageTemplateName];
