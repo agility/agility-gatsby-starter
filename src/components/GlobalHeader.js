@@ -5,7 +5,7 @@ import './GlobalHeader.css'
 
 export default props => (
     <StaticQuery
-        query = {graphql `
+        query={graphql`
         query GlobalHeaderQuery {
             allAgilityContentGlobalHeader {
               nodes {
@@ -16,6 +16,7 @@ export default props => (
             }
             allAgilitySitemapNode {
               nodes {
+                pageID
                 path
                 menuText
                 visible {
@@ -25,19 +26,19 @@ export default props => (
             }
           }          
         `}
-        render={ queryData =>  {
+        render={queryData => {
             const viewModel = {
                 item: queryData.allAgilityContentGlobalHeader.nodes[0],
                 menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
                     //only return top level links
-                    return sitemapNode.path.split('/').length == 2 
+                    return sitemapNode.path.split('/').length == 2
                 })
             }
-            return(
-                <GlobalHeader {...viewModel} />  
+            return (
+                <GlobalHeader {...viewModel} />
             );
         }}
-    /> 
+    />
 )
 
 class GlobalHeader extends Component {
@@ -47,9 +48,9 @@ class GlobalHeader extends Component {
         this.props.menuLinks.forEach(node => {
             links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
         })
-        return links;        
+        return links;
     }
-    render() {    
+    render() {
         console.log('header', this.props);
         return (
             <header className="header">
