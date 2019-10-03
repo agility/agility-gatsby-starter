@@ -2,7 +2,7 @@
 
 This repo shows how you can use GatsbyJS with Agility CMS.
 
-This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms).
+This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it meant to be used with the **Blog Template** in Agility CMS
 
 This is currently a work in-progress. Please see _Issues_ for a list of features that need to be implemented.
 
