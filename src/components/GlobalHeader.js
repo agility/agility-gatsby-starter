@@ -37,7 +37,14 @@ export default props => (
                 }),
                 menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
                     //only return top level links 
-                    return (sitemapNode.path.split('/').length === 2 || sitemapNode.path.split('/').length === 3) && sitemapNode.languageCode === props.languageCode
+                    if(props.agilityConfig.languages.length > 1) {
+                        //need to account for language path
+                        return (sitemapNode.path.split('/').length === 3) && sitemapNode.languageCode === props.languageCode
+                    } else {
+                        //for no language path
+                        return (sitemapNode.path.split('/').length === 2) && sitemapNode.languageCode === props.languageCode
+                    }
+                    
                 }),
                 nodesInOtherLanguages: props.sitemapNode.nodesInOtherLanguages
             }
