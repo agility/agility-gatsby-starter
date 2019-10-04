@@ -4,6 +4,7 @@ import { Link, graphql, StaticQuery } from "gatsby"
 import './GlobalHeader.css'
 
 export default props => (
+    
     <StaticQuery
         query={graphql`
         query GlobalHeaderQuery {
@@ -12,6 +13,7 @@ export default props => (
                 myFields {
                   siteName
                 }
+                languageCode
               }
             }
             allAgilitySitemapNode {
@@ -22,17 +24,22 @@ export default props => (
                 visible {
                   menu
                 }
+                languageCode
               }
             }
           }          
         `}
         render={queryData => {
+            console.log(props)
             const viewModel = {
-                item: queryData.allAgilityContentGlobalHeader.nodes[0],
+                item: queryData.allAgilityContentGlobalHeader.nodes.find(globalHeader => {
+                    return globalHeader.languageCode === props.languageCode
+                }),
                 menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
-                    //only return top level links
-                    return sitemapNode.path.split('/').length == 2
-                })
+                    //only return top level links 
+                    return (sitemapNode.path.split('/').length === 2 || sitemapNode.path.split('/').length === 3) && sitemapNode.languageCode === props.languageCode
+                }),
+                nodesInOtherLanguages: props.sitemapNode.nodesInOtherLanguages
             }
             return (
                 <GlobalHeader {...viewModel} />
@@ -43,10 +50,16 @@ export default props => (
 
 class GlobalHeader extends Component {
     renderLinks = () => {
-
         let links = [];
         this.props.menuLinks.forEach(node => {
-            links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
+            links.push(<li key={`${node.pageID}-${node.languageCode}`}><Link to={node.path}>{node.menuText}</Link></li>)
+        })
+        return links;
+    }
+    renderLanguageSwitchLink = () => {
+        let links = [];
+        this.props.nodesInOtherLanguages.forEach(node => {
+            links.push(<li key={`${node.pageID}-${node.languageCode}`}>Switch to: <Link to={node.path}>{node.menuText} ({node.languageName})</Link></li>)
         })
         return links;
     }
@@ -58,6 +71,7 @@ class GlobalHeader extends Component {
                     <label>{this.props.item.myFields.siteName}</label>
                     <ul>
                         {this.renderLinks()}
+                        {this.renderLanguageSwitchLink()}
                     </ul>
                 </div>
             </header>

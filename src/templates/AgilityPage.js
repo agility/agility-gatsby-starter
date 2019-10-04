@@ -20,7 +20,7 @@ export default class AgilityPage extends Component {
 
         return (
             <div id="inner-body">
-                <GlobalHeader />
+                <GlobalHeader {...this.props.pageContext} />
                 <PageTemplateComponentToRender {...propsForPageTemplate} />
             </div>
         );

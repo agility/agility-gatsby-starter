@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { graphql, StaticQuery } from "gatsby"
 
 import './Jumbotron.css'
 

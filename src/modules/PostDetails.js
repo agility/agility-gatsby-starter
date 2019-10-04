@@ -16,7 +16,7 @@ class PostDetails extends Component {
                 <div className="post">
                     <h1>{post.fields.title}</h1>
                     {post.fields.image &&
-                        <img src={post.fields.image.url + '?w=860'} />
+                        <img alt={post.fields.image.label} src={post.fields.image.url + '?w=860'} />
                     }
                     <div className="post-content" dangerouslySetInnerHTML={this.renderPostContent(post.fields.details)}></div>
                 </div>

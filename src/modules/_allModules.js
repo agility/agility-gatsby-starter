@@ -4,4 +4,4 @@
  import PostsListing from './PostsListing.js'
  import RichTextArea from './RichTextArea.js'
 
- export default { Jumbotron, PostDetails, PostDetails, RichTextArea, PostsListing }
+ export default { Jumbotron, PostDetails, RichTextArea, PostsListing }
