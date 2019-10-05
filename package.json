@@ -5,7 +5,6 @@
   "version": "0.3.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
