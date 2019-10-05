@@ -13,6 +13,7 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
+  "heroku-run-build-script": false,
   "dependencies": {
     "@agility/content-fetch": "^0.5.7",
     "@agility/gatsby-source-agilitycms": "^0.3.0",
