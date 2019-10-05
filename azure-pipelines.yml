@@ -18,3 +18,12 @@ steps:
 - script: |
     npm install
   displayName: 'npm install'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: drop
