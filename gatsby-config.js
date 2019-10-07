@@ -25,6 +25,8 @@ module.exports = {
       // The name of the plugin
       resolve: "@agility/gatsby-source-agilitycms", 
       options: {
+        // If you are debugging content from Agility CMS, you can set this to `true`
+        debug: true,
         // Your Agility Content Fetch API Guid
         guid: agilityConfig.guid, 
         // Your Agility Content Fetch API Key
