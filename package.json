@@ -5,6 +5,7 @@
   "version": "0.3.1",
   "license": "MIT",
   "scripts": {
+    "heroku-postbuild": "web: gatsby develop -p $PORT -H 0.0.0.0",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
