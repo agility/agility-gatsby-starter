@@ -16,7 +16,17 @@ This repo is a great starting point to get a Gatsby project up and running quick
 
 This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it meant to be used with the **Blog Template** in Agility CMS
 
-This is currently a work in-progress. Please see _Issues_ for a list of features that need to be implemented.
+This is currently a work in-progress. Please see [Issues](https://github.com/agility/agility-gatsby-starter/issues) for a list of features that need to be implemented.
+
+# Table of contents
+
+1. [What is Agility CMS? What makes it different?](#what-is)
+1. [Getting up and running](#start)
+1. [How to build a production version of your project and test it](#build)
+1. [How to format all project code with Prettier](#format)
+1. [Resources](#resources)
+
+<a name="start"></a>
 
 ## Getting up and running
 
@@ -117,6 +127,8 @@ With [NPM](https://www.npmjs.com/get-npm)
 npm start
 ```
 
+<a name="build"></a>
+
 ## How to build a production version of your project and test it
 
 It's good practice to build a production version and test it locally before publishing it or doing a pull request into `master`. Here's how to do it:
@@ -135,6 +147,8 @@ npm run build
 npm run serve
 ```
 
+<a name="format"></a>
+
 ## How to format all project code with Prettier
 
 If you care about code formatting and keeping it consistent across your projects and/or among your team, you can utilize an opinionated code formatter like [Prettier](https://prettier.io/). This repo contains a `./.prettierrc` file which you can modify to suit your formatting tastes/needs.
@@ -150,3 +164,45 @@ With [NPM](https://www.npmjs.com/get-npm)
 ```
 npm run format
 ```
+
+<a name="what-is"></a>
+
+## What is Agility CMS? What makes it different?
+
+[Agility CMS](https://agilitycms.com/) is a headless Content Management System (CMS) that lets you define your custom content types and relationships. This is called Content Architecture, and you can reuse this content for your websites and apps.
+
+In addition, Agility CMS provides a page routing API, which allows you to offload control of the sitemap to the content editors.
+
+All content is available through the Agility CMS [Fetch](https://help.agilitycms.com/hc/en-us/sections/360006070691-Content-Fetch-API) or Preview API.
+
+<a name="resources"></a>
+
+## Resources
+
+### Agility CMS Documentation
+
+[Documentation](https://help.agilitycms.com/hc/en-us)
+
+[Guides](https://agilitycms.com/resources)
+
+[Sourcing from Agility CMS](https://www.gatsbyjs.org/docs/sourcing-from-agilitycms/)
+
+[Help/Support](https://help.agilitycms.com/hc/en-us)
+
+### Community
+
+[Official Slack](https://join.slack.com/t/agilitycommunity/shared_invite/enQtNzI2NDc3MzU4Njc2LWI2OTNjZTI3ZGY1NWRiNTYzNmEyNmI0MGZlZTRkYzI3NmRjNzkxYmI5YTZjNTg2ZTk4NGUzNjg5NzY3OWViZGI)
+
+[Podcast](https://agilitycms.com/community/agileliving)
+
+[Blog](https://agilitycms.com/resources/posts)
+
+[GitHub](https://github.com/agility)
+
+[Forums](https://help.agilitycms.com/hc/en-us/community/topics)
+
+[Facebook](https://www.facebook.com/AgilityCMS/)
+
+[Twitter](https://twitter.com/AgilityCMS)
+
+### Plugins
