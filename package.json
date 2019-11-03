@@ -11,12 +11,13 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "preview": "gatsby develop -H 0.0.0.0 -p 80",
+    "az-preview": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "heroku-run-build-script": false,
   "dependencies": {
-    "@agility/gatsby-source-agilitycms": "^0.3.6",
+    "@agility/gatsby-source-agilitycms": "^0.3.7",
     "dotenv": "^8.1.0",
     "gatsby": "^2.15.29",
     "react": "^16.8.6",

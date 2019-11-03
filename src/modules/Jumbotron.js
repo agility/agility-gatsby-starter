@@ -8,6 +8,7 @@ export default class Jumbotron extends Component {
             <section className="jumbotron">
                 <h1>{this.props.item.fields.title}</h1>
                 <h2>{this.props.item.fields.subTitle}</h2>
+                <span></span>
             </section>
         );
     }

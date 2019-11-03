@@ -25,6 +25,8 @@ module.exports = {
       // The name of the plugin
       resolve: "@agility/gatsby-source-agilitycms", 
       options: {
+        // HACK: go straight to Origin for testing [ TODO: REMOVE THIS ]
+        baseUrl: "https://agility-fetch-api-usa.azurewebsites.net",
         // If you are debugging content from Agility CMS, you can set this to `true`
         debug: true,
         // Your Agility Content Fetch API Guid
