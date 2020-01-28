@@ -10,6 +10,12 @@ const agilityConfig = {
   isPreview: process.env.AGILITY_API_ISPREVIEW
 }
 
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ */
+
 module.exports = {
   siteMetadata: {
     title: "Agility CMS Gatsby Starter",

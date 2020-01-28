@@ -26,3 +26,4 @@ export default class AgilityPage extends Component {
         );
     }
 }
+
