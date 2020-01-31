@@ -66,13 +66,6 @@ git clone https://github.com/agility/agility-gatsby-starter
 
 ## Install Node dependencies
 
-With [Yarn](https://yarnpkg.com/en/docs/install)
-
-```
-cd agility-gatsby-starter
-yarn
-```
-
 With [NPM](https://www.npmjs.com/get-npm)
 
 ```
@@ -127,12 +120,6 @@ AGILITY_API_ISPREVIEW=false
 
 Once the above steps are done, you can launch your local development server:
 
-With [Yarn](https://yarnpkg.com/en/docs/install)
-
-```
-yarn start
-```
-
 With [NPM](https://www.npmjs.com/get-npm)
 
 ```
@@ -144,12 +131,6 @@ npm start
 # How to build a production version of your project and test it
 
 It's good practice to build a production version and test it locally before publishing it or doing a pull request into `master`. Here's how to do it:
-
-With [Yarn](https://yarnpkg.com/en/docs/install)
-
-```
-yarn build
-yarn serve
 ```
 
 With [NPM](https://www.npmjs.com/get-npm)
@@ -174,11 +155,6 @@ npm run serve
 If you care about code formatting and keeping it consistent across your projects and/or among your team, you can utilize an opinionated code formatter like [Prettier](https://prettier.io/). This repo contains a `./.prettierrc` file which you can modify to suit your formatting tastes/needs.
 
 [Documentation on Prettier Options](https://prettier.io/docs/en/options.html)
-
-With [Yarn](https://yarnpkg.com/en/docs/install)
-
-```
-yarn format
 ```
 
 With [NPM](https://www.npmjs.com/get-npm)
