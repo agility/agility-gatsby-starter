@@ -17,6 +17,7 @@
     "@agility/gatsby-source-agilitycms": "^0.3.7",
     "dotenv": "^8.1.0",
     "gatsby": "^2.19.10",
+    "gatsby-plugin-sharp": "^2.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "truncate-html": "^1.0.2"
