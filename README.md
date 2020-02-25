@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby + Agility CMS Starter
+  Gatsby + Agility CMS
 </h1>
 <p align="center"><a href="https://github.com/agility/agility-gatsby-starter/blob/master/LICENSE">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="This repo is released under the MIT license." />
@@ -16,7 +16,15 @@
 
 This repo is a great starting point to get a Gatsby project up and running quickly with Agility CMS as the Content Management System.
 
-This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it is meant to be used with the **Blog Template** in Agility CMS
+This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it is meant to be used with the **Blog Template** in Agility CMS.
+
+Our source plugin with Gatsby will only refresh content that has changed since your last build, so you can rest easy your builds will be fast, regardless of how many pages you have.
+
+**Preview Site** (Gatsby Cloud): 
+https://agility-gatsby-starter-5854363761.gtsb.io/
+
+**Production Site** (Netlify): 
+https://agility-gatsby-starter-gatsbycloud.netlify.com/
 
 
 # Table of contents
