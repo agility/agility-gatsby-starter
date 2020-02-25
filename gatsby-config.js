@@ -6,7 +6,7 @@ require("dotenv").config({
 //your agility api credentials stay secure
 const agilityConfig = {
   guid: process.env.AGILITY_GUID,
-  accessToken: process.env.AGILITY_API_KEY,
+  apiKey: process.env.AGILITY_API_KEY,
   isPreview: process.env.AGILITY_API_ISPREVIEW
 }
 
@@ -22,22 +22,26 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "@agility/gatsby-source-agilitycms", //the name of the plugin
+      //the name of the plugin
+      resolve: "@agility/gatsby-source-agilitycms", 
+      //the options for our plugin
       options: {
-        guid: agilityConfig.guid, //your Agility Content Fetch API Guid
-        apiKey: agilityConfig.accessToken, //your Agility Content Fetch API Key
-        isPreview: agilityConfig.isPreview, //set this to true if you are using the preview API Key
-        debug: true,
-        sharedContent: ["posts", "globalheader"], //a list of reference names you want to include in your GraphQL store
+        //your Agility Content Fetch API Guid
+        guid: agilityConfig.guid, 
+        //your Agility Content Fetch API Key
+        apiKey: agilityConfig.apiKey, 
+        //set this to true if you are using the preview API Key
+        isPreview: agilityConfig.isPreview, 
+        //set this to true to see expanded traces in the build logs
+        debug: false,
+        //the languages you want to source content for
         languages: [{
           // The name of the language code
           name: "English",
           // The actual language code set in Agility CMS
           code: "en-us", 
           // The name to be used in the URL path that represents the current language
-          path: "en", 
-          // The path to the Agility CMS page that you want to use as your root/home page
-          homePagePath: "/home" 
+          path: "en"
         }], 
         // The channels you want to include
         channels: [{

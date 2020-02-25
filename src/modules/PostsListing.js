@@ -36,7 +36,8 @@ export default props => (
                 ){
               nodes {
                 contentID,
-                path
+                path,
+                languageCode
               }
             }
           }
@@ -52,8 +53,6 @@ export default props => (
 				const sitemapNodeForPost = queryData.allAgilitySitemapNode.nodes.find(sitemapNode => {
 					return post.contentID === sitemapNode.contentID;
 				})
-
-
 
 				post.dynamicUrl = sitemapNodeForPost.path;
 				posts.push(post);
