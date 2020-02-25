@@ -1,10 +1,32 @@
+/* ---- Jumbotron ---- */
 .jumbotron {
     text-align: center;
-    background: #000;
+    background-color: #000;
+    background-image: url(../img/jumbotron-BG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     color: #fff;
-    padding: 16px;
-}
-
-.jumbotron h1, .jumbotron h2 {
-    margin: 16px;
-}
+    padding: 90px 10px;
+  }
+  .jumbotron h1,
+  .jumbotron h2 {
+    text-shadow: 1px 1px #3b3b3b;
+    color: #fff;
+  }
+  .jumbotron h1 {
+    margin-bottom: 0px;
+  }
+  .jumbotron h2 {
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+  .jumbotron .cta-btns {
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .jumbotron .cta-btns .btn {
+    margin: 0 5px;
+  }

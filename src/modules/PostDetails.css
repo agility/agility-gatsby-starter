@@ -1,6 +1,14 @@
 .post-details {
-    padding: 16px;
+    max-width: 800px;
+    margin: 30px auto;
 }
+
 .post-details .post img{
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.post-details .post .author {
+    font-weight: 600;
 }

@@ -4,24 +4,25 @@ import './PostListing.css'
 import truncate from 'truncate-html'
 
 export default props => (
-    <StaticQuery
-        query = {graphql `
+	<StaticQuery
+		query={graphql`
         query PostListingModuleQuery {
-            allAgilityContentPost(
+            allAgilityPost(
               filter: {
                 properties: { referenceName: { eq: "posts"}}
-              }, 
+              },
               limit: 10
             ) {
               totalCount
               nodes {
                 contentID
-                myFields {
+                agilityFields {
                     title
                     details
                     image {
                         url
                     }
+
                 }
                     properties {
                         referenceName
@@ -30,7 +31,7 @@ export default props => (
             }
             allAgilitySitemapNode (
               filter: {
-                contentID: {ne: null}
+                contentID: {ne: -1}
               }
                 ){
               nodes {
@@ -38,66 +39,97 @@ export default props => (
                 path
               }
             }
-          }                         
+          }
         `}
-        render={ queryData =>  {
+		render={queryData => {
 
-            let posts = [];
+			let posts = [];
 
-            //get the dynamic URLs for each post
-            queryData.allAgilityContentPost.nodes.forEach(post => {
-                const sitemapNodeForPost = queryData.allAgilitySitemapNode.nodes.find(sitemapNode => {
-                    return post.contentID === sitemapNode.contentID;
-                })
-                post.dynamicUrl = sitemapNodeForPost.path;
-                posts.push(post);
-            })
+			//get the dynamic URLs for each post
+			queryData.allAgilityPost.nodes.forEach(post => {
 
-            const viewModel = {
-                item: props.item,
-                posts: posts
-            }
-            return(
-                <PostsListing {...viewModel}/>  
-            );
-        }}
-    /> 
+
+				const sitemapNodeForPost = queryData.allAgilitySitemapNode.nodes.find(sitemapNode => {
+					return post.contentID === sitemapNode.contentID;
+				})
+
+
+
+				post.dynamicUrl = sitemapNodeForPost.path;
+				posts.push(post);
+			})
+
+			const viewModel = {
+				item: props.item,
+				posts: posts
+			}
+			return (
+				<PostsListing {...viewModel} />
+			);
+		}}
+	/>
 )
 
 
-class PostsListing extends Component {
-    renderPostExcerpt(html) {
-        const excerpt = truncate(html, { stripTags: true, length: 160 });
-        return { __html: excerpt };
-    }
-    renderPosts() {
-        if (this.props.posts != null) {
-            let posts = [];
-            this.props.posts.forEach(post => {
-                posts.push(
-                    <div className="post" key={post.contentID}>
-                        {post.myFields.image &&
-                            <img src={post.myFields.image.url + '?w=860'} alt={post.myFields.image.label} />
-                        }
-                        <h2>
-                            <Link to={post.dynamicUrl}>{post.myFields.title}</Link>
-                        </h2>
-                        <p dangerouslySetInnerHTML={this.renderPostExcerpt(post.myFields.details)}></p>
-                    </div>
-                )
-            })
+/*
+ category {
+	item {
+		agilityFields {
+			title
+		}
+	}
+}
+author {
+	item {
+		agilityFields {
+			name
+		}
+	}
+}
+*/
 
-            return posts;
-        }
-    }
-    render() {
-        return (
-            <section className="posts-listing">
-                <div className="container">
-                    <h1>{this.props.item.fields.title}</h1>
-                    {this.renderPosts()}
-                </div>
-            </section>
-        );
-    }
+class PostsListing extends Component {
+	renderPostExcerpt(html) {
+		const excerpt = truncate(html, { stripTags: true, length: 160 });
+		return { __html: excerpt };
+	}
+	renderPosts() {
+		if (this.props.posts != null) {
+			let posts = [];
+
+			this.props.posts.forEach(post => {
+				posts.push(
+					<div className="post" key={post.contentID}>
+						<Link to={post.dynamicUrl}>
+							{post.agilityFields.image &&
+								<img src={post.agilityFields.image.url + '?w=480'} alt={post.agilityFields.image.label} />
+							}
+							<h2>
+								{post.agilityFields.title}
+							</h2>
+							{/* <div>{post.agilityFields.author.item.agilityFields.name} | {post.agilityFields.category.item.agilityFields.title}</div> */}
+							<p dangerouslySetInnerHTML={this.renderPostExcerpt(post.agilityFields.details)}></p>
+						</Link>
+					</div>
+				)
+			})
+
+			return posts;
+		}
+	}
+	render() {
+
+		return (
+
+
+			<section className="posts-listing" >
+				<div className="container">
+					<h1>{this.props.item.fields.title}</h1>
+					<div className="posts-listing-container">
+						{this.renderPosts()}
+					</div>
+				</div>
+			</section>
+		);
+	}
 }

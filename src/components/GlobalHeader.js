@@ -4,65 +4,64 @@ import { Link, graphql, StaticQuery } from "gatsby"
 import './GlobalHeader.css'
 
 export default props => (
-    <StaticQuery
-        query={graphql`
+	<StaticQuery
+		query={graphql`
         query GlobalHeaderQuery {
-            allAgilityContentGlobalHeader {
-              nodes {
-                myFields {
-                  siteName
-                }
-              }
-            }
+			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
+				agilityFields {
+					siteName
+				}
+			}
             allAgilitySitemapNode {
-              nodes {
-                pageID
-                path
-                menuText
-                visible {
-                  menu
+                nodes {
+                    languageCode
+                    path
+                    menuText
+                    pageID
                 }
-              }
             }
-          }          
+		}
+
         `}
-        render={queryData => {
-            const viewModel = {
-                item: queryData.allAgilityContentGlobalHeader.nodes[0],
-                menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
-                    //only return top level links
-                    return sitemapNode.path.split('/').length == 2
-                })
-            }
-            return (
-                <GlobalHeader {...viewModel} />
-            );
-        }}
-    />
+		render={queryData => {
+			const viewModel = {
+				item: queryData.agilityGlobalHeader,
+				menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
+					//only return top level links
+					return sitemapNode.path.split('/').length === 2
+				})
+			}
+			return (
+				<GlobalHeader {...viewModel} />
+			);
+		}}
+	/>
 )
 
 class GlobalHeader extends Component {
-    renderLinks = () => {
+	renderLinks = () => {
 
-        let links = [];
-        this.props.menuLinks.forEach(node => {
-            links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
-        })
-        return links;
-    }
-    render() {
-        console.log('header', this.props);
-        return (
-            <header className="header">
-                <div className="container">
-                    <label>{this.props.item.myFields.siteName}</label>
-                    <ul>
-                        {this.renderLinks()}
-                    </ul>
-                </div>
-            </header>
-        );
-    }
+		let links = [];
+		this.props.menuLinks.forEach(node => {
+			links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
+		})
+		return links;
+	}
+	render() {
+
+		return (
+			<header className="header">
+				<div className="container">
+					<Link to="/" className="logo-link">Home</Link>
+					<label>{this.props.item.agilityFields.siteName}</label>
+					<ul className="links">
+						{this.renderLinks()}
+					</ul>
+				</div>
+			</header>
+
+		);
+	}
 }
 
 

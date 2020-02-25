@@ -1,7 +1,37 @@
 .posts-listing {
     padding: 16px;
+
+}
+.posts-listing-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+
 }
 
+.posts-listing .post {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #cbcbcb;
+    width: 48%;
+    border-radius: 5px;
+    transition: all .3s ;
+
+}
+
+.posts-listing .post:hover {
+    background-color: #eee;
+}
+
+.posts-listing .post h2 {
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+
+
 .posts-listing .post img {
-    max-width: 100%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
 }

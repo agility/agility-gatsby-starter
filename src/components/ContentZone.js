@@ -5,27 +5,29 @@ export default class ContentZone extends Component {
         let modules = []
 
         const contentZoneName = this.props.name;
-        const modulesForThisContentZone = this.props.pageContext.page.zones[contentZoneName];
-    
+        const page = this.props.page;
+        const dynamicPageItem = this.props.dynamicPageItem;
+        const modulesForThisContentZone = page.zones[contentZoneName];
+
         if (modulesForThisContentZone === undefined) {
             console.error(`Cannot render modules for zone "${contentZoneName}". This does not appear to be a valid content zone for this page template.`)
             return;
-        } 
+        }
 
         modulesForThisContentZone.forEach(moduleItem => {
-            console.log('moduleItem', moduleItem);
-            const ModuleComponentToRender = this.props.modules[moduleItem.item.properties.definitionName];
-            const metaData = {
+            const moduleDefName = moduleItem.item.properties.definitionName;
+            const ModuleComponentToRender = this.props.modules[moduleDefName];
+            const moduleProps = {
                 key: moduleItem.item.contentID,
-                dynamicPageItem: this.props.pageContext.dynamicPageItem,
+                dynamicPageItem: dynamicPageItem,
+                item: moduleItem.item
             }
 
-            const moduleProps = Object.assign({}, metaData, moduleItem);
 
             if (ModuleComponentToRender) {
-                modules.push(<ModuleComponentToRender {...moduleProps}  />)
+                modules.push(<ModuleComponentToRender {...moduleProps} />)
             } else {
-                console.error(`No react component found for the module "${moduleItem.module}". Cannot render module.`);
+                console.error(`No react component found for the module "${moduleDefName}". Cannot render module.`);
             }
         })
 
