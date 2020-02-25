@@ -33,7 +33,6 @@ https://agility-gatsby-starter-gatsbycloud.netlify.com/
 - [Getting up and running](#start)
 - [How to build a production version of your project and test it](#build)
 - [Deploy](#deploy)
-- [How to format all project code with Prettier](#format)
 - [Customizing your Agility Gatsby project further](#customizing)
 - [What is Agility CMS? What makes it different?](#what-is)
 - [Resources](#resources)
@@ -141,7 +140,7 @@ npm start
 # How to build a production version of your project and test it
 
 It's good practice to build a production version and test it locally before publishing it or doing a pull request into `master`. Here's how to do it:
-```
+
 
 With [NPM](https://www.npmjs.com/get-npm)
 
@@ -158,24 +157,6 @@ npm run serve
 
 ☝️ Deploy this starter repo in just minutes with [Netlify](https://www.netlify.com/). You'll need to add your Agility CMS `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW` variables in Netlify's **Site settings > Build & deploy > Environment** section.
 
-<a name="format"></a>
-
-# How to format all project code with Prettier
-
-If you care about code formatting and keeping it consistent across your projects and/or among your team, you can utilize an opinionated code formatter like [Prettier](https://prettier.io/). This repo contains a `./.prettierrc` file which you can modify to suit your formatting tastes/needs.
-
-[Documentation on Prettier Options](https://prettier.io/docs/en/options.html)
-```
-
-With [NPM](https://www.npmjs.com/get-npm)
-
-```
-npm run format
-```
-
-<a name="customizing"></a>
-
-# Customizing your Agility Gatsby project further
 
 ## gatsby-config.js
 

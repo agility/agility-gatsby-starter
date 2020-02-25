@@ -57,11 +57,15 @@ export default class AgilityPage extends Component {
 
 		return (
 			<LayoutTemplate>
-				<Helmet>
-					<meta charSet="utf-8" />
-					<title>{title} - Example Template</title>
-					<meta name="description" content={page.seo.metaDescription} />
-				</Helmet>
+                <Helmet 
+                    title={`${title}  - Blog Template`}
+                    meta={[
+                        {
+                            name: `description`,
+                            content: page.seo.metaDescription
+                        }
+                    ]} 
+                />
 
 				<PreviewBar isPreview={isPreview} />
 				<GlobalHeader />

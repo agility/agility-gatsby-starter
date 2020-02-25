@@ -19,8 +19,10 @@ const agilityConfig = {
 module.exports = {
   siteMetadata: {
     title: "Agility CMS Gatsby Starter",
+    
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       //the name of the plugin
       resolve: "@agility/gatsby-source-agilitycms", 

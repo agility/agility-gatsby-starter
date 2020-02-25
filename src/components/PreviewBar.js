@@ -9,11 +9,7 @@ class PreviewBar extends Component {
   }
 
   render() {
-
-
-
-    if (this.props.isPreview === "true") {
-
+    if (this.props.isPreview === 'true') {
       return (<div id="agility-preview-bar" title="You are currently in Preview Mode.">Preview Mode</div>)
     } else {
       return null;
