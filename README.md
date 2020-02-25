@@ -9,13 +9,15 @@
 </h1>
 <p align="center"><a href="https://github.com/agility/agility-gatsby-starter/blob/master/LICENSE">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="This repo is released under the MIT license." />
-</a> <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&logo=producthunt" alt="code style: prettier" /></a></p>
+</a> <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&logo=producthunt" alt="code style: prettier" /></a>
+</p>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a9f9e3f0-fdb0-4b12-8df5-a0c2c365c3c4/deploy-status)](https://app.netlify.com/sites/agility-gatsby-starter-gatsbycloud/deploys)
 
 This repo is a great starting point to get a Gatsby project up and running quickly with Agility CMS as the Content Management System.
 
-This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it meant to be used with the **Blog Template** in Agility CMS
+This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it is meant to be used with the **Blog Template** in Agility CMS
 
-This is currently a work in-progress. Please see [Issues](https://github.com/agility/agility-gatsby-starter/issues) for a list of features that need to be implemented.
 
 # Table of contents
 
