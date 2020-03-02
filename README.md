@@ -63,11 +63,18 @@ Fill out the form and ensure you select `JavaScript` as your Development Stack.
 
 On step 2, give your project a name and ensure to select `Blog Template` as your template.
 
-## Save your Agility CMS credentials
+## Retreive your Agility CMS API Credentials
 
-After going through the sign up process, you'll come to your Agility CMS `Getting Started` screen which has **Content Fetch API Details**. Save your `GUID` and then click the **Show API Key(s)** button to reveal your `Live API Key` and `Preview API Key`. Click the **Show** buttons beside both to unmask the credentials and copy these somewhere temporarily, or refer back to this screen when you begin to [Configure your local environment](#configure-local).
+After going through the sign up process and you are logged in to Agility CMS, on the `Getting Started Page` click the **API Keys** button to retrieve youre credentials.
 
-![Content Fetch API Details](https://raw.githubusercontent.com/agility/agility-gatsby-starter/master/docs/images/content-fetch-api-details.png "Content Fetch API Details")
+![Content Fetch API Details](/docs/images/showapikeys.png "Content Fetch API Details")
+
+Then, click the **Show API Key(s)** button to view your `Live` and `Preview` keys.
+
+![Content Fetch API Details](/docs/images/creds.png "Content Fetch API Creds")
+
+ Take note of your `GUID` and your `Live API Key` and `Preview API Key`. Click the **Show** buttons beside both to unmask the credentials and copy these somewhere temporarily, or refer back to this screen when you begin to [Configure your local environment](#configure-local).
+
 
 ## Clone this repo to your local machine
 
