@@ -14,6 +14,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a9f9e3f0-fdb0-4b12-8df5-a0c2c365c3c4/deploy-status)](https://app.netlify.com/sites/agility-gatsby-starter-gatsbycloud/deploys)
 
+Want to learn about [Agility CMS + Gatsby?](https://help.agilitycms.com/hc/en-us/articles/360039879872) and why its a match made in heaven?
+
 This repo is a great starting point to get a Gatsby project up and running quickly with Agility CMS as the Content Management System.
 
 This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it is meant to be used with the **Blog Template** in Agility CMS.
