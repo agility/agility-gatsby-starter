@@ -168,11 +168,15 @@ You'll want to take a peek under the hood at some point and take the starter's c
 
 # What is Agility CMS? What makes it different?
 
-[Agility CMS](https://agilitycms.com/) is a headless Content Management System (CMS) that lets you define your custom content types and relationships. This is called Content Architecture, and you can reuse this content for your websites and apps.
+[Agility CMS](https://agilitycms.com/) is a headless Content Management System (CMS) that lets you define your custom content types, relationships and pages. This is called Content Architecture, and you can reuse this content for your websites and apps.
 
-In addition, Agility CMS provides a page routing API, which allows you to offload control of the sitemap to the content editors.
+Agility believes that a successful website balances the **User Experience (UX)**, **Editor Experience (EX)**, and **Developer Experience (DX)**. 
 
-All content is available through the Agility CMS [Fetch](https://help.agilitycms.com/hc/en-us/sections/360006070691-Content-Fetch-API) or Preview API.
+While Gatsby tends to handle **UX** and **DX** quite well, too often editors are an after-thought in Gatsby (and other JAMstack) websites. They feel constrained by not being able to manage their sitemap and what content is on which pages.
+
+Agility aims to empower and improve the **Editor Experience** by providing built-in **Page Management**. This means developers can build UI Components and leave editors to compose their pages.
+
+[Learn more about Agility CMS and Gatsby](https://help.agilitycms.com/hc/en-us/articles/360039879872)
 
 <a name="resources"></a>
 
