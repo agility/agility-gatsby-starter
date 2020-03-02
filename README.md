@@ -57,11 +57,9 @@ npm install -g gatsby-cli
 
 ## Pre-requisite: Get a free Agility CMS account
 
-Navigate to [https://account.agilitycms.com/sign-up?product=agility-free](https://account.agilitycms.com/sign-up?product=agility-free).
+[Sign up for a free account using the Blog Template](https://account.agilitycms.com/sign-up?product=agility-free).
 
-Fill out the form and ensure you select `JavaScript` as your Development Stack.
-
-On step 2, give your project a name and ensure to select `Blog Template` as your template.
+On *step 2*, give your project a name and ensure you select `Blog Template` as your template.
 
 ## Retreive your Agility CMS API Credentials
 
