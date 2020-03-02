@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-
-class RichTextArea extends Component {
-	componentDidMount() {
-
-	}
-	setHTML = () => {
-
-		return { __html: this.props.item.fields.textblob };
-	}
-	render() {
-		const setHTML = this.setHTML();
-		return (
-			<section className="container">
-				<div dangerouslySetInnerHTML={setHTML}></div>
-			</section>
-		);
-	}
+const RichTextArea = ({ item }) => {
+    const renderHTML = () => {
+        return { __html: item.customFields.textblob };
+    }
+    return (
+        <section className="container">
+            <div dangerouslySetInnerHTML={renderHTML()}></div>
+        </section>
+    );
 }
 
 export default RichTextArea;

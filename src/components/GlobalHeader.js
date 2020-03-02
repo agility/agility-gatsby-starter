@@ -8,7 +8,7 @@ export default props => (
 		query={graphql`
         query GlobalHeaderQuery {
 			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
-				agilityFields {
+				customFields {
 					siteName
 				}
 			}
@@ -53,7 +53,7 @@ class GlobalHeader extends Component {
 			<header className="header">
 				<div className="container">
 					<Link to="/" className="logo-link">Home</Link>
-					<label>{this.props.item.agilityFields.siteName}</label>
+					<label>{this.props.item.customFields.siteName}</label>
 					<ul className="links">
 						{this.renderLinks()}
 					</ul>

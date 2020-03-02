@@ -19,7 +19,7 @@ const agilityConfig = {
 module.exports = {
   siteMetadata: {
     title: "Agility CMS Gatsby Starter",
-    
+
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -50,7 +50,7 @@ module.exports = {
           // The reference name for the website channel as it is defined in Agility CMS
           referenceName: "website"
         }],
-        masterPageTemplate: "./src/templates/AgilityPage.js", //the page template that will be used to render Agility CMS pages
+        masterPageTemplate: "./src/AgilityPage.js", //the page template that will be used to render Agility CMS pages
       },
     },
   ],
