@@ -1,3 +1,5 @@
+const agility = require('./src/agility/utils')
+
 //gatsy-node.js
 //CREATE RESOLVERS *******************************************************************************************
 exports.createResolvers = (args) => {
@@ -7,63 +9,19 @@ exports.createResolvers = (args) => {
 	const resolvers = {
         //on the 'agilityPost' node type...
         agilityPost: {
-            // //when you call the 'author' property, resolve it!
-            // author: {
-            //     //we are telling it is going to return the 'agilityAuthor' node type
-            //     type: 'agilityAuthor',
-            //     //this is the function that is going to resolve it
-            //     resolve: async (source, args, context, info) => {
-            //         //query the graphql nodes to find the item you want to return
-            //         const node = context.nodeModel.runQuery({
-            //             //find the author that matches our ID and language code
-            //             query: { 
-            //                     filter: { 
-            //                         contentID: { eq: source.customFields.author.contentid },
-            //                         languageCode: { eq: source.languageCode}
-            //                     }
-            //                 },
-            //             type: `agilityAuthor`,
-            //             //tell it to stop searching once we found our item
-            //             firstOnly: true,
-            //         })
-            //         return node;
-            //     }
-            // },
+            //get the sitemap node that represents this item - useful for retrieving the URL for the item
+            sitemapNode: agility.getDynamicPageItemSitemapNode(),
             
-            //when you call the 'sitemapNode' property on an 'agilityPost', get the corresponding sitemapNode from 'agilitySitemapNode'
-            //this is useful when you need to get the pagePath/URL of an 'agilityPost'
-            /*
-                query MyQuery {
-                    allAgilityPost {
-                        nodes {
-                        sitemapNode {
-                            pagePath
-                        }
-                        customFields {
-                            title
-                        }
-                        }
-                    }
-                }
-            */
-            sitemapNode: {
-                type: 'agilitySitemapNode',
-                resolve: async (source, args, context, info) => {
-                    const node = context.nodeModel.runQuery({
-                        query: { 
-                            filter: { 
-                                contentID: { eq: source.contentID },
-                                languageCode: { eq: source.languageCode}
-                            }
-                        },
-                        type: `agilitySitemapNode`,
-                        firstOnly: true
-                    })
-                    return node;
-                }
-            }            
-        }
+            //[Not Implemented]
+            //if we had a linked content field for 'author', this is how we'd get the author for this post in a single GraphQl query
+            //linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
+        },
+
+        //[Not Implemented]
+        //if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
+        // agilityImageSlider: {
+        //     linkedContent_agilitySlides: agility.getLinkedContentList({ type: 'agilitySlide', linkedContentFieldName: 'slides' })
+        // }
     }
 	createResolvers(resolvers)
 }
-

@@ -21,7 +21,6 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
                 item: moduleItem.item
             }
 
-
             if (ModuleComponentToRender) {
                 modules.push(<ModuleComponentToRender {...moduleProps} />)
             } else {
