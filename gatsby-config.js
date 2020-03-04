@@ -50,7 +50,8 @@ module.exports = {
           // The reference name for the website channel as it is defined in Agility CMS
           referenceName: "website"
         }],
-        masterPageTemplate: "./src/AgilityPage.js", //the page template that will be used to render Agility CMS pages
+         //the page template that will be used to render Agility CMS pages
+        masterPageTemplate: "./src/AgilityPage.js"
       },
     },
   ],
