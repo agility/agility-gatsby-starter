@@ -62,6 +62,7 @@ const Posts = ({ posts }) => {
 }
 
 const Post = ({ post }) => {
+    if(!post.sitemapNode) return;
     return(
         <div className="post" key={post.contentID}>
             <Link to={post.sitemapNode.pagePath}>
