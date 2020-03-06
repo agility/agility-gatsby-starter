@@ -13,9 +13,10 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@agility/gatsby-source-agilitycms": "^1.1.2",
+    "@agility/gatsby-source-agilitycms": "^1.2.0",
     "dotenv": "^8.1.0",
     "gatsby": "^2.19.12",
+    "gatsby-plugin-netlify": "^2.1.33",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sharp": "^2.4.0",
     "react": "^16.8.6",

@@ -85,9 +85,20 @@ const getDynamicPageItemSitemapNode = () => {
     return fieldResolver;
 }
 
+const renderHTML = (html) => {
+    return { __html: cleanHTML(html) };
+}
+
+const cleanHTML = (html) => {
+    //fix '~' in links in HTML
+    return html.replace(/href="~\//gi, 'href="/')
+}
+
 module.exports = {
     buildPageViewModel,
     getLinkedContentList,
     getDynamicPageItemSitemapNode,
-    getLinkedContentItem
+    getLinkedContentItem,
+    renderHTML,
+    cleanHTML
 }

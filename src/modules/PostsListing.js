@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby'
+import { cleanHTML} from '../agility/utils'
 import truncate from 'truncate-html'
 import './PostListing.css'
 
@@ -82,7 +83,7 @@ const PostImage = ({ image }) => {
 
 const PostExceprt = ({ htmlContent }) => {
     const renderHTML = () => {
-        const excerpt = truncate(htmlContent, { stripTags: true, length: 160 });
+        const excerpt = truncate(cleanHTML(htmlContent), { stripTags: true, length: 160 });
 		return { __html: excerpt };
     }
     return(<p dangerouslySetInnerHTML={renderHTML()}></p>)
