@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "MY_KEY": "Something",
+        "SOME_BLANK": ""
+      }
+    }
+  }
