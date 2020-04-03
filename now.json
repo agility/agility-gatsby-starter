@@ -3,14 +3,12 @@
       "env": {
         "AGILITY_GUID": "@agility-guid",
         "AGILITY_API_KEY": "@agility-api-key",
-        "AGILITY_API_ISPREVIEW": false,
-        "ENABLE_GATSBY_REFRESH_ENDPOINT": false
+        "AGILITY_API_ISPREVIEW": "@agility-api-ispreview"
       }
     },
     "env": {
         "AGILITY_GUID": "@agility-guid",
         "AGILITY_API_KEY": "@agility-api-key",
-        "AGILITY_API_ISPREVIEW": false,
-        "ENABLE_GATSBY_REFRESH_ENDPOINT": false
+        "AGILITY_API_ISPREVIEW": "@agility-api-ispreview"
       }
   }
