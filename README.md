@@ -162,7 +162,7 @@ npm run serve
 
 [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/agility/agility-gatsby-starter)
 
-☝️ Deploy this starter repo in just minutes with [Zeit](https://zeit.co/). It will prompt you to enter your `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW`.
+☝️ Deploy this starter repo in just minutes with [ZEIT](https://zeit.co/). It will prompt you to enter your `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW`.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/agility/agility-gatsby-starter)
 
