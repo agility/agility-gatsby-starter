@@ -13,6 +13,12 @@ const buildPageViewModel = ( { pageContext, data }) => {
 
     const page = JSON.parse(data.agilitypage.pageJson);
 
+    if(dynamicPageItem) {
+        //replace the title with the title of the post
+        page.title = dynamicPageItem.customFields.title;
+    }
+
+
     //build the our viewModel
     return {
         page: page,
