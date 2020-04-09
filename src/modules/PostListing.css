@@ -1,7 +1,4 @@
-.posts-listing {
-    padding: 16px;
 
-}
 .posts-listing-container {
     display: flex;
     flex-flow: row wrap;

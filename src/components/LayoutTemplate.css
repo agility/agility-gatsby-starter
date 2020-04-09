@@ -153,6 +153,10 @@ h5 { font-size: 1em; line-height: .85em; margin-bottom: 10px; }
   width: 100%;
 }
 
+section {
+  margin-bottom: 1rem;
+}
+
 /* Medium Break */
 @media (max-width: 900px) {
   .container {
