@@ -3,6 +3,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import { cleanHTML} from '../agility/utils'
 import truncate from 'truncate-html'
 import './PostListing.css'
+import Img from 'gatsby-image'
 
 export default (props) => (
 	<StaticQuery
@@ -20,8 +21,12 @@ export default (props) => (
                     customFields {
                         title
                         details
-                        image {
-                            url
+                        imageLocalImg {
+                            childImageSharp {
+                                fluid(quality: 90, maxWidth: 480, maxHeight: 350) {
+                                  ...GatsbyImageSharpFluid
+                                }
+                              }
                         }
                     }
                     sitemapNode {
@@ -62,11 +67,12 @@ const Posts = ({ posts }) => {
 }
 
 const Post = ({ post }) => {
+    
     if(!post.sitemapNode) return;
     return(
         <div className="post" key={post.contentID}>
             <Link to={post.sitemapNode.pagePath}>
-                <PostImage image={post.customFields.image} />
+                <PostImage image={post.customFields.imageLocalImg} label={post.customFields.image ? post.customFields.image.label : `Post Image`} />
                 <h2>{post.customFields.title}</h2>
                 <PostExceprt htmlContent={post.customFields.details} />
             </Link>
@@ -74,10 +80,12 @@ const Post = ({ post }) => {
     )
 }
 
-const PostImage = ({ image }) => {
+const PostImage = ({ image, label }) => {
     let imageToRender = null;
-    if(image && image.url) {
-        imageToRender = <img src={image.url + '?w=480'} alt={image.label} />
+    
+    if(image && image.childImageSharp) {
+
+        imageToRender = <Img fluid={image.childImageSharp.fluid} alt={label} /> 
     }
     return imageToRender;
 }

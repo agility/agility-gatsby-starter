@@ -55,5 +55,11 @@ module.exports = {
         masterPageTemplate: "./src/AgilityPage.js"
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    { 
+      resolve: `gatsby-source-filesystem`,
+      options: { name: `images`, path: `./src/img/` }
+    },
   ],
 }
