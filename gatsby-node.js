@@ -36,8 +36,16 @@ exports.onCreateNode = async ({
   }) => {
     // For all Agility nodes that have an attachment field, call createRemoteFileNode
     if (
-      node.internal.type.indexOf(`agility`)  > -1
-      && (node.internal.type.indexOf(`agilitypage`) == -1 && node.internal.type.indexOf(`agilitystate`) == -1 && node.internal.type.indexOf(`agilitysitemap`) == -1 && node.internal.type.indexOf(`agilitySitemapNode`) == -1 && node.internal.type.indexOf(`agilityitem`) == -1)
+      node.internal.type.indexOf(`agility`)  > -1 && 
+      node.customFields
+      && (
+          node.internal.type.indexOf(`agilitypage`) == -1 &&
+          node.internal.type.indexOf(`agilitystate`) == -1 &&
+          node.internal.type.indexOf(`agilitysitemap`) == -1 &&
+          node.internal.type.indexOf(`agilitynestedsitemap`) == -1 &&
+          node.internal.type.indexOf(`agilitySitemapNode`) == -1 &&
+          node.internal.type.indexOf(`agilityitem`) == -1
+          )
     ) {
         const customFields = Object.keys(node.customFields);
         await asyncForEach(customFields, async (field) => {
