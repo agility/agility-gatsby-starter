@@ -28,6 +28,9 @@ https://agility-gatsby-starter-5854363761.gtsb.io/
 **Production Site** (Netlify): 
 https://agility-gatsby-starter-gatsbycloud.netlify.com/
 
+## Documentation
+[Learn how to get started with Gatsby and Agility CMS](https://help.agilitycms.com/hc/en-us/articles/360037873531)
+
 
 # Table of contents
 
