@@ -23,7 +23,9 @@ const buildPageViewModel = ( { pageContext, data }) => {
     return {
         page: page,
         dynamicPageItem: dynamicPageItem,
-        isPreview: pageContext.isPreview
+        isPreview: pageContext.isPreview,
+        languageCode: pageContext.languageCode,
+        isMultiLanguage: pageContext.isMultiLanguage
     }
 }
 

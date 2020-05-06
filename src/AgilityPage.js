@@ -27,7 +27,7 @@ const AgilityPage = ({ pageContext, data }) => {
         <LayoutTemplate>
             <SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />
             <PreviewBar isPreview={viewModel.isPreview} />
-            <GlobalHeader />
+            <GlobalHeader languageCode={viewModel.languageCode} isMultiLanguage={viewModel.isMultiLanguage} />
             <main className="main">
                 <AgilityPageTemplate {...viewModel} />
             </main>

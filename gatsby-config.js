@@ -36,7 +36,7 @@ module.exports = {
         //set this to true if you are using the preview API Key
         isPreview: agilityConfig.isPreview, 
         //set this to true to see expanded traces in the build logs
-        debug: false,
+        debug: true,
         //the languages you want to source content for
         languages: [{
           // The name of the language code

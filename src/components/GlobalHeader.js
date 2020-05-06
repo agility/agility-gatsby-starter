@@ -27,8 +27,13 @@ export default props => (
 			const viewModel = {
 				item: queryData.agilityGlobalHeader,
 				menuLinks: queryData.allAgilitySitemapNode.nodes.filter(sitemapNode => {
-					//only return top level links
-					return sitemapNode.path.split('/').length === 2
+					let isTopLevelPage = sitemapNode.path.split('/').length === 2;
+					const isThisLanguage = sitemapNode.languageCode === props.languageCode;
+					if(props.isMultiLanguage) {
+						isTopLevelPage = sitemapNode.path.split('/').length === 3
+					}
+					//only return nodes from this language and top level links only
+					return isThisLanguage && isTopLevelPage
 				})
 			}
 			return (
