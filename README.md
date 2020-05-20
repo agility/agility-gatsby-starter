@@ -13,6 +13,7 @@
 </p>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a9f9e3f0-fdb0-4b12-8df5-a0c2c365c3c4/deploy-status)](https://app.netlify.com/sites/agility-gatsby-starter-gatsbycloud/deploys)
+![Azure Static Web Apps CI/CD](https://github.com/agility/agility-gatsby-starter/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
 
 Want to learn about [Agility CMS + Gatsby?](https://help.agilitycms.com/hc/en-us/articles/360039879872) and why its a match made in heaven?
 
