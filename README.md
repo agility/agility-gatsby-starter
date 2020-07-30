@@ -164,9 +164,9 @@ npm run serve
 
 # Deploy
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/agility/agility-gatsby-starter)
+[![Deploy with Vercel](https://zeit.co/button)](https://vercel.com/import/git?c=1&amp;s=https://github.com/agility/agilitycms-nextjs-starter-2020&amp;env=AGILITY_GUID,AGILITY_API_FETCH_KEY,AGILITY_API_PREVIEW_KEY,AGILITY_SECURITY_KEY&amp;envDescription=API%20Keys%20required%20by%20Agility%20CMS&amp;)
 
-☝️ Deploy this starter repo in just minutes with [ZEIT](https://zeit.co/). It will prompt you to enter your `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW`.
+☝️ Deploy this starter repo in just minutes with [Vercel](https://zeit.co/). It will prompt you to enter your `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW`.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/agility/agility-gatsby-starter)
 
