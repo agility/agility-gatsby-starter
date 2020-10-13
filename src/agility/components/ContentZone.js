@@ -12,20 +12,28 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 			return;
 		}
 
+
+
 		modulesForThisContentZone.forEach(moduleItem => {
 			if (moduleItem.item) {
 				const moduleDefName = moduleItem.item.properties.definitionName;
-				const ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
-				const moduleProps = {
-					key: moduleItem.item.contentID,
-					dynamicPageItem: dynamicPageItem,
-					item: moduleItem.item
-				}
 
-				if (ModuleComponentToRender) {
-					modules.push(<ModuleComponentToRender {...moduleProps} />)
-				} else {
-					console.error(`No react component found for the module "${moduleDefName}". Cannot render module.`);
+				try {
+					const ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
+
+					if (ModuleComponentToRender) {
+						const moduleProps = {
+							key: moduleItem.item.contentID,
+							dynamicPageItem: dynamicPageItem,
+							item: moduleItem.item
+						}
+						modules.push(<ModuleComponentToRender {...moduleProps} />)
+					} else {
+						throw new Error(`No react component found for the module "${moduleDefName}". Cannot render module.`)
+					}
+				} catch (e) {
+					console.error(`Error rendering module ${moduleDefName}`, e)
+					modules.push(<div>Module {moduleDefName} could not be rendered.</div>)
 				}
 			}
 		})
