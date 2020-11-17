@@ -2,7 +2,7 @@
   "name": "agility-gatsby-starter",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build",
@@ -13,7 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@agility/gatsby-source-agilitycms": "^1.6.3",
+    "@agility/gatsby-source-agilitycms": "^1.6.4",
     "dotenv": "^8.1.0",
     "gatsby": "^2.21.4",
     "gatsby-image": "^2.3.2",
