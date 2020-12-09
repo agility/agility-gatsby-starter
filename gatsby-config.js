@@ -7,7 +7,7 @@ require("dotenv").config({
 const agilityConfig = {
   guid: process.env.AGILITY_GUID,
   apiKey: process.env.AGILITY_API_KEY,
-  isPreview: process.env.AGILITY_API_ISPREVIEW
+  isPreview: process.env.AGILITY_API_ISPREVIEW,
 }
 
 /**
@@ -19,47 +19,50 @@ const agilityConfig = {
 module.exports = {
   siteMetadata: {
     title: "Agility CMS Gatsby Starter",
-
   },
   plugins: [
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     {
       //the name of the plugin
-      resolve: "@agility/gatsby-source-agilitycms", 
+      resolve: "@agility/gatsby-source-agilitycms",
       //the options for our plugin
       options: {
         //your Agility Content Fetch API Guid
-        guid: agilityConfig.guid, 
+        guid: agilityConfig.guid,
         //your Agility Content Fetch API Key
-        apiKey: agilityConfig.apiKey, 
+        apiKey: agilityConfig.apiKey,
         //set this to true if you are using the preview API Key
-        isPreview: agilityConfig.isPreview, 
+        isPreview: agilityConfig.isPreview,
         //set this to true to see expanded traces in the build logs
         debug: false,
         //the languages you want to source content for
-        languages: [{
-          // The name of the language code
-          name: "English",
-          // The actual language code set in Agility CMS
-          code: "en-us", 
-          // The name to be used in the URL path that represents the current language
-          path: "en"
-        }], 
+        languages: [
+          {
+            // The name of the language code
+            name: "English",
+            // The actual language code set in Agility CMS
+            code: "en-us",
+            // The name to be used in the URL path that represents the current language
+            path: "en",
+          },
+        ],
         // The channels you want to include
-        channels: [{
-          // The reference name for the website channel as it is defined in Agility CMS
-          referenceName: "website"
-        }],
-         //the page template that will be used to render Agility CMS pages
-        masterPageTemplate: "./src/AgilityPage.js"
+        channels: [
+          {
+            // The reference name for the website channel as it is defined in Agility CMS
+            referenceName: "website",
+          },
+        ],
+        //the page template that will be used to render Agility CMS pages
+        masterPageTemplate: "./src/AgilityPage.js",
       },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    { 
+    {
       resolve: `gatsby-source-filesystem`,
-      options: { name: `images`, path: `./src/img/` }
+      options: { name: `images`, path: `./src/img/` },
     },
   ],
 }
