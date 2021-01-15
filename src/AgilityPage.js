@@ -24,7 +24,6 @@ export const query = graphql`
 `
 const AgilityPage = ({ pageContext, data }) => {
   const viewModel = agilityUtils.buildPageViewModel({ pageContext, data })
-  console.log(viewModel.page)
   return (
     <LayoutTemplate>
       <SEO
