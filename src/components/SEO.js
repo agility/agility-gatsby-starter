@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import ReactHtmlParser from "react-html-parser"
 
-const SEO = ({ title, description, metaHTML, metaKeywords, topScripts }) => {
+const SEO = ({ title, description, metaHTML, metaKeywords }) => {
   // setup and parse additional header markup
   let metaRawHtml = null
   if (metaHTML) {
