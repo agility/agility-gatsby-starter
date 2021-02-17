@@ -2,7 +2,7 @@
   "name": "agility-gatsby-starter",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build",
