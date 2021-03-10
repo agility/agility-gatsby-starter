@@ -1,8 +1,8 @@
 {
   "name": "agility-gatsby-starter",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "2.3.3",
+  "description": "A simplified bare-bones starter for building websites with Agility CMS & Gatsby.",
+  "version": "2.3.4",
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build",
