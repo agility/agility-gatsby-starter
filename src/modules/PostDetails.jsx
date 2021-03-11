@@ -1,5 +1,6 @@
 import React from 'react';
 import './PostDetails.css'
+import  { AgilityImage }  from "@agility/gatsby-image-agilitycms"
 
 const PostDetails = ({ item, dynamicPageItem }) => {
     const post = dynamicPageItem;
@@ -12,7 +13,8 @@ const PostDetails = ({ item, dynamicPageItem }) => {
                 <div className="post">
                     <h1>{post.customFields.title}</h1>
                     {post.customFields.image &&
-                        <img src={post.customFields.image.url + '?w=860'} alt="" />
+						<AgilityImage image={ post.customFields.image} layout="fullWidth" />
+
                     }
                     <hr />
                     <div className="post-content" dangerouslySetInnerHTML={renderHTML(post.customFields.details)}></div>

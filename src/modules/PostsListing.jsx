@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby'
-import { cleanHTML} from '../agility/utils'
+import { cleanHTML } from '../agility/utils'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import truncate from 'truncate-html'
 import './PostListing.css'
 import Img from 'gatsby-image'
@@ -21,12 +22,12 @@ export default (props) => (
                     customFields {
                         title
                         details
-                        imageLocalImg {
-                            childImageSharp {
-                                fluid(quality: 90, maxWidth: 480, maxHeight: 350) {
-                                  ...GatsbyImageSharpFluid
-                                }
-                              }
+                        image {
+                          label
+                          url
+                          filesize
+                          height
+                          width
                         }
                     }
                     sitemapNode {
@@ -48,52 +49,46 @@ export default (props) => (
 )
 
 const PostsListing = ({ item, posts }) => {
-    return (
-        <section className="posts-listing" >
-            <div className="container">
-                <h1>{item.customFields.title}</h1>
-                <div className="posts-listing-container">
-                    <Posts posts={posts} />
-                </div>
-            </div>
-        </section>
-    )
+	return (
+		<section className="posts-listing" >
+			<div className="container">
+				<h1>{item.customFields.title}</h1>
+				<div className="posts-listing-container">
+					<Posts posts={posts} />
+				</div>
+			</div>
+		</section>
+	)
 }
 
 const Posts = ({ posts }) => {
-    return posts.map(post => {
-        return <Post key={post.contentID} post={post} />;
-    })
+	return posts.map(post => {
+		return <Post key={post.contentID} post={post} />;
+	})
 }
 
 const Post = ({ post }) => {
-    
-    if(!post.sitemapNode) return;
-    return(
-        <div className="post" key={post.contentID}>
-            <Link to={post.sitemapNode.pagePath}>
-                <PostImage image={post.customFields.imageLocalImg} label={post.customFields.image ? post.customFields.image.label : `Post Image`} />
-                <h2>{post.customFields.title}</h2>
-                <PostExceprt htmlContent={post.customFields.details} />
-            </Link>
-        </div>
-    )
+
+	if (!post.sitemapNode) return;
+
+	const postImage = post.customFields.image
+
+	return (
+		<div className="post" key={post.contentID}>
+			<Link to={post.sitemapNode.pagePath}>
+				<AgilityImage image={postImage}   />
+				<h2>{post.customFields.title}</h2>
+				<PostExceprt htmlContent={post.customFields.details} />
+			</Link>
+		</div>
+	)
 }
 
-const PostImage = ({ image, label }) => {
-    let imageToRender = null;
-    
-    if(image && image.childImageSharp) {
-
-        imageToRender = <Img fluid={image.childImageSharp.fluid} alt={label} /> 
-    }
-    return imageToRender;
-}
 
 const PostExceprt = ({ htmlContent }) => {
-    const renderHTML = () => {
-        const excerpt = truncate(cleanHTML(htmlContent), { stripTags: true, length: 160 });
+	const renderHTML = () => {
+		const excerpt = truncate(cleanHTML(htmlContent), { stripTags: true, length: 160 });
 		return { __html: excerpt };
-    }
-    return(<p dangerouslySetInnerHTML={renderHTML()}></p>)
+	}
+	return (<p dangerouslySetInnerHTML={renderHTML()}></p>)
 }
