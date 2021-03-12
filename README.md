@@ -15,25 +15,27 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a9f9e3f0-fdb0-4b12-8df5-a0c2c365c3c4/deploy-status)](https://app.netlify.com/sites/agility-gatsby-starter-gatsbycloud/deploys)
 ![Azure Static Web Apps CI/CD](https://github.com/agility/agility-gatsby-starter/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
 
-Want to learn about [Agility CMS + Gatsby?](https://help.agilitycms.com/hc/en-us/articles/360039879872) and why its a match made in heaven?
+Want to learn about why [Agility CMS + Gatsby?](https://help.agilitycms.com/hc/en-us/articles/360039879872) is a match made in heaven?
 
-This repo is a great starting point to get a Gatsby project up and running quickly with Agility CMS as the Content Management System.
+This project is meant to be used with our **Blog Template**, and is a great starting point to get a Gatsby project up and running quickly with Agility CMS as the Content Management System.
 
-This site uses the [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) and it is meant to be used with the **Blog Template** in Agility CMS.
+# Features
 
-Our source plugin with Gatsby will only refresh content that has changed since your last build, so you can rest easy your builds will be fast, regardless of how many pages you have.
+1. [Gatsby V3](https://www.gatsbyjs.com/blog/gatsby-v3/) - The latest version of Gatsby’s core framework which introduces massive improvement to the developer and user experience.
+2. [AgilityImage](https://github.com/agility/gatbsy-image-agilitycms) - A custom image component utilizing the new Gatsby Image Plugin that take's images stored within Agility CMS and handles all of the hard parts of displaying responsive images that follow best practices for performance on your website or application.
+3. [Agility CMS Gatsby Source Plugin](https://github.com/agility/gatsby-source-agilitycms) - our official Gatsby plugin that will only refresh content that has changed since your last build, so you can rest easy your builds will be fast, regardless of how many pages you have.
 
-**Preview Site** (Gatsby Cloud): 
+**Preview Site** (Gatsby Cloud):
 https://agility-gatsby-starter-5854363761.gtsb.io/
 
-**Production Site** (Netlify): 
+**Production Site** (Netlify):
 https://agility-gatsby-starter-gatsbycloud.netlify.com/
 
 ## Documentation
+
 [Learn how to get started with Gatsby and Agility CMS](https://help.agilitycms.com/hc/en-us/articles/360037873531)
 
-
-# Table of contents
+## Table of contents
 
 - [What is Agility CMS? What makes it different?](#what-is)
 - [Getting up and running](#start)
@@ -59,24 +61,19 @@ npm install -g gatsby-cli
 
 [Additional information for getting started with Gatsby](https://www.gatsbyjs.org/tutorial/)
 
-## Pre-requisite: Get a free Agility CMS account
+## Pre-requisite: Sign up for a Free Agility CMS Account
 
 [Sign up for a free account using the Blog Template](https://account.agilitycms.com/sign-up?product=agility-free).
 
-On *step 2*, give your project a name and ensure you select **`Blog Template`** as your template.
-
 ## Retreive your Agility CMS API Credentials
 
-After going through the sign up process and you are logged in to Agility CMS, on the `Getting Started Page` click the **API Keys** button to retrieve youre credentials.
+After signing up for a free account and logging into Agility CMS, click on the **Get API Keys** button on your dashboard.
 
-![Content Fetch API Details](/docs/images/showapikeys.png "Content Fetch API Details")
+![API Key Details](/docs/images/apiKeys.png "API Key Details")
 
-Then, click the **Show API Key(s)** button to view your `Live` and `Preview` keys.
+Take note of your `GUID` and your `Live API Key` and `Preview API Key`. Copy these somewhere temporarily, or refer back to this screen when you begin to [Configure your local environment](#configure-local).
 
-![Content Fetch API Details](/docs/images/creds.png "Content Fetch API Creds")
-
- Take note of your `GUID` and your `Live API Key` and `Preview API Key`. Click the **Show** buttons beside both to unmask the credentials and copy these somewhere temporarily, or refer back to this screen when you begin to [Configure your local environment](#configure-local).
-
+![API Key Details](/docs/images/apiKeyValues.png "API Key Details")
 
 ## Clone this repo to your local machine
 
@@ -152,7 +149,6 @@ npm start
 
 It's good practice to build a production version and test it locally before publishing it or doing a pull request into `master`. Here's how to do it:
 
-
 With [NPM](https://www.npmjs.com/get-npm)
 
 ```
@@ -164,14 +160,13 @@ npm run serve
 
 # Deploy
 
-[![Deploy with Vercel](https://zeit.co/button)](https://vercel.com/import/git?c=1&amp;s=https://github.com/agility/agility-gatsby-starter&amp;env=AGILITY_GUID,AGILITY_API_KEY,AGILITY_API_PREVIEW&amp;envDescription=API%20Keys%20required%20by%20Agility%20CMS&amp;)
+[![Deploy with Vercel](https://zeit.co/button)](https://vercel.com/import/git?c=1&s=https://github.com/agility/agility-gatsby-starter&env=AGILITY_GUID,AGILITY_API_KEY,AGILITY_API_PREVIEW&envDescription=API%20Keys%20required%20by%20Agility%20CMS&)
 
 ☝️ Deploy this starter repo in just minutes with [Vercel](https://zeit.co/). It will prompt you to enter your `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW`.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/agility/agility-gatsby-starter)
 
 ☝️ Deploy this starter repo in just minutes with [Netlify](https://www.netlify.com/). You'll need to add your Agility CMS `AGILITY_GUID`, `AGILITY_API_KEY`, and `AGILITY_API_ISPREVIEW` variables in Netlify's **Site settings > Build & deploy > Environment** section.
-
 
 ## gatsby-config.js
 
@@ -183,7 +178,7 @@ You'll want to take a peek under the hood at some point and take the starter's c
 
 [Agility CMS](https://agilitycms.com/) is a headless Content Management System (CMS) that lets you define your custom content types, relationships and pages. This is called Content Architecture, and you can reuse this content for your websites and apps.
 
-Agility believes that a successful website balances the **User Experience (UX)**, **Editor Experience (EX)**, and **Developer Experience (DX)**. 
+Agility believes that a successful website balances the **User Experience (UX)**, **Editor Experience (EX)**, and **Developer Experience (DX)**.
 
 While Gatsby tends to handle **UX** and **DX** quite well, too often editors are an after-thought in Gatsby (and other JAMstack) websites. They feel constrained by not being able to manage their sitemap and what content is on which pages.
 
