@@ -4,7 +4,6 @@ import { cleanHTML } from '../agility/utils'
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import truncate from 'truncate-html'
 import './PostListing.css'
-import Img from 'gatsby-image'
 
 export default (props) => (
 	<StaticQuery

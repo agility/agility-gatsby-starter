@@ -110,7 +110,7 @@ exports.createPages = async (args, configOptions) => {
 	if (usingDefaultData) {
 		createPage({
 			path: `/`,
-			component: require.resolve(`./src/BlankPage.js`),
+			component: require.resolve(`./src/BlankPage.jsx`),
 			context: {},
 		})
 	}
